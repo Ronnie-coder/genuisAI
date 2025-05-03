@@ -1,0 +1,20 @@
+{% extends 'chatbot/base.html' %}
+
+{% block sidebar %}
+    {% for conv in conversations %}
+        <a href="{% url 'conversation' conv.id %}" class="conversation-item">
+            <i class="fas fa-comments"></i> {{ conv.title }}
+        </a>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="welcome-screen">
+    <div class="logo">
+        <i class="fas fa-brain"></i>
+    </div>
+    <h1>Welcome to Genius</h1>
+    <p>Your personal AI assistant, life guide, coding partner, and motivator.</p>
+    <a href="{% url 'new_conversation' %}" class="start-btn">Start a Conversation</a>
+</div>
+{% endblock %}
